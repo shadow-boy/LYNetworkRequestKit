@@ -111,19 +111,11 @@
 		BF8DD91C216F96E0004D4692 /* LYNetworkRequestKit */ = {
 			isa = PBXGroup;
 			children = (
-				BF8DD924216FABA0004D4692 /* UIKit */,
+				BF8DD925216FABAD004D4692 /* HUD */,
 				BF8DD91E216F96E0004D4692 /* NetworkRequest.h */,
 				BF8DD91D216F96E0004D4692 /* NetworkRequest.m */,
 			);
 			path = LYNetworkRequestKit;
-			sourceTree = "<group>";
-		};
-		BF8DD924216FABA0004D4692 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				BF8DD925216FABAD004D4692 /* HUD */,
-			);
-			path = UIKit;
 			sourceTree = "<group>";
 		};
 		BF8DD925216FABAD004D4692 /* HUD */ = {
