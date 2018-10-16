@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
-  s.resources = "LYNetworkRequestKit/**/**/*.xib","LYNetworkRequestKit/**/**/**/*.xib","LYNetworkRequestKit/**/**/**/**/*.xib"
+  # s.resources = "LYNetworkRequestKit/**/**/*.xib","LYNetworkRequestKit/**/**/**/*.xib","LYNetworkRequestKit/**/**/**/**/*.xib"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
