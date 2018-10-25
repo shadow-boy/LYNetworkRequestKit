@@ -15,69 +15,56 @@
 //}
 
 
-#import <Foundation/Foundation.h>
 
+
+
+#import <Foundation/Foundation.h>
+static NSInteger kCacheNetworkTime = 10 * 60;
+static NSInteger kCacheNoNetworkTime = 60 * 60 * 24 * 10;
 NS_ASSUME_NONNULL_BEGIN
 
 
 @interface NetworkRequest : NSObject
+
+
+/* 域名名称  return e.g:"https://", "http://"*/
+@property (nonatomic,strong)NSString * baseURL;
+/* 域名前缀 return e.g:"www.baidu.com" */
+@property (nonatomic,strong)NSString * baseURL_Prefix;
+/* 服务器返回的业务数据key e.g "content" "data" */
+@property (nonatomic,strong)NSString * kDataKey;
+/* 返回业务状态码字段 */
+@property (nonatomic,strong)NSString * kStatusCodeKey;
+/* 返回提示消息字段*/
+@property (nonatomic,strong)NSString * kMsgKey;
+/* 返回成功的业务状态码 */
+@property (nonatomic,assign)NSInteger  kSuccessStatusCode;
+/* 请求超时设置 默认10s */
+@property (nonatomic,assign)NSInteger  timeOutInterval;
+
+/* 设置请求头 return e.g:@[@"Authorization":@"token_string"] */
+@property (nonatomic,strong)NSDictionary * httpRequestHeader;
+
+#pragma mark ---- 缓存相关
+/* 有网络情况下缓存时间 默认10分钟 */
+@property (nonatomic,assign)NSInteger cacheTime;
+
+/* 无网络情况下缓存时间 默认10天 */
+@property (nonatomic,assign)NSInteger cacheNoNetworkTime;
+
+/*从缓存优先加载数据、默认NO  可以使用set方法复赋值 方法和getter方法返回值 */
+@property (nonatomic,assign)BOOL loadCacheFirst;
+
+/*刷新缓存信息、默认NO  可以使用set方法复赋值 方法和getter方法返回值*/
+@property (nonatomic,assign)BOOL refreshCache;
+
 /**
- 域名名称
-
- @return e.g:"https://", "http://"
- */
-+(NSString *)baseURL;
-/**
- 域名前缀
-
- @return e.g:"www.baidu.com"
- */
-+(NSString *)baseURL_Prefix;
-
-#pragma mark -----下面4个方法是。。分别返回。。服务器返回的1、业务数据key。。2、状态码key。。。3、状态消息key。。。4、正常的状态码
-
-/**
-  服务器返回的业务数据key
+  share 类单例方法
 
  @return <#return value description#>
  */
-+(NSString *)kDataKey;
++(instancetype)shareInstance;
 
-/**
- 返回业务状态码字段
-
- @return <#return value description#>
- */
-+(NSString *)kStatusCodeKey;
-
-/**
- 返回提示消息字段
-
- @return <#return value description#>
- */
-+(NSString *)kMsgKey;
-
-/**
-返回成功的业务状态码
-
- @return <#return value description#>
- */
-+(NSInteger)kSuccessStatusCode;
-
-/**
-请求超时设置
-
- @return <#return value description#>
- */
-+(NSInteger)timeOutInterval;
-#pragma mark -----end
-
-/**
- 设置请求头。
-
- @return e.g:@[@"Authorization":@"token_string"]
- */
-+(NSDictionary *)httpRequestHeader;
 
 
 /**
@@ -85,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param action <#action description#>
  */
-+ (void)cancelRequestWithAction:(NSString *)action;
+- (void)cancelRequestWithAction:(NSString *)action;
 #pragma mark -----下面分别为请求方法。分别
 /**
  *  依次为 GET POST DELETE PUT
@@ -96,28 +83,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param exceptionResponse 异常block
  *
  */
-+ (void)requestGetJsonOperationWithParam:(NSDictionary *)param
+- (void)requestGetJsonOperationWithParam:(NSDictionary *)param
                                   action:(NSString *)action
                              showLoadHud:(BOOL)showHud
                             cancelEnable:(BOOL)cancelEnable
                           normalResponse:(void(^)(NSInteger status, id data))normalResponse
                        exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 
-+ (void)requestPostJsonOperationWithParam:(NSDictionary *)param
+- (void)requestPostJsonOperationWithParam:(NSDictionary *)param
                                    action:(NSString *)action
                               showLoadHud:(BOOL)showHud
                              cancelEnable:(BOOL)cancelEnable
                            normalResponse:(void(^)(NSInteger status, id data))normalResponse
                         exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 
-+ (void)requestDeleteJsonOperationWithParam:(NSDictionary *)param
+- (void)requestDeleteJsonOperationWithParam:(NSDictionary *)param
                                      action:(NSString *)action
                                 showLoadHud:(BOOL)showHud
                                cancelEnable:(BOOL)cancelEnable
                              normalResponse:(void(^)(NSInteger status, id data))normalResponse
                           exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 
-+ (void)requestPutJsonOperationWithParam:(NSDictionary *)param
+- (void)requestPutJsonOperationWithParam:(NSDictionary *)param
                                   action:(NSString *)action
                              showLoadHud:(BOOL)showHud
                             cancelEnable:(BOOL)cancelEnable
@@ -125,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
                        exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 
 
-+ (void)requestPatchJsonOperationWithParam:(NSDictionary *)param
+- (void)requestPatchJsonOperationWithParam:(NSDictionary *)param
                                     action:(NSString *)action
                                showLoadHud:(BOOL)showHud
                               cancelEnable:(BOOL)cancelEnable
@@ -135,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark ------ 返回为model对象的接口
 
-+ (void)requestGetJsonModelWithParam:(NSDictionary *)param
+- (void)requestGetJsonModelWithParam:(NSDictionary *)param
                               action:(NSString *)action
                          showLoadHud:(BOOL)showHud
                         cancelEnable:(BOOL)cancelEnable
@@ -143,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
                       normalResponse:(void(^)(NSInteger status, id data, NSObject *model))normalResponse
                    exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 
-+ (void)requestGetJsonArrayWithParam:(NSDictionary *)param
+- (void)requestGetJsonArrayWithParam:(NSDictionary *)param
                               action:(NSString *)action
                          showLoadHud:(BOOL)showHud
                         cancelEnable:(BOOL)cancelEnable
@@ -153,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-+ (void)requestPostJsonModelWithParam:(NSDictionary *)param
+- (void)requestPostJsonModelWithParam:(NSDictionary *)param
                                action:(NSString *)action
                           showLoadHud:(BOOL)showHud
                          cancelEnable:(BOOL)cancelEnable
@@ -161,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
                        normalResponse:(void(^)(NSInteger status, id data, NSObject *model))normalResponse
                     exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 
-+ (void)requestPostJsonArrayWithParam:(NSDictionary *)param
+- (void)requestPostJsonArrayWithParam:(NSDictionary *)param
                                action:(NSString *)action
                           showLoadHud:(BOOL)showHud
                          cancelEnable:(BOOL)cancelEnable

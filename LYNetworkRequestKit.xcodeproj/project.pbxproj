@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		993D3468061C446F969BC191 /* libPods-LYNetworkRequestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C86EB788928A4F60F19C3143 /* libPods-LYNetworkRequestKit.a */; };
+		BF8D86F0218214DA00BACBEB /* BaseApi.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8D86EE218214DA00BACBEB /* BaseApi.h */; };
+		BF8D86F1218214DA00BACBEB /* BaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D86EF218214DA00BACBEB /* BaseApi.m */; };
 		BF8DD90B216F96C3004D4692 /* LYNetworkRequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8DD901216F96C3004D4692 /* LYNetworkRequestKit.framework */; };
 		BF8DD910216F96C3004D4692 /* LYNetworkRequestKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8DD90F216F96C3004D4692 /* LYNetworkRequestKitTests.m */; };
 		BF8DD912216F96C3004D4692 /* LYNetworkRequestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8DD904216F96C3004D4692 /* LYNetworkRequestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,8 +17,10 @@
 		BF8DD922216F96E0004D4692 /* NetworkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8DD91E216F96E0004D4692 /* NetworkRequest.h */; };
 		BF8DD928216FABED004D4692 /* LYProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8DD926216FABED004D4692 /* LYProgressHUD.h */; };
 		BF8DD929216FABED004D4692 /* LYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8DD927216FABED004D4692 /* LYProgressHUD.m */; };
-		BFACEC0821756E38000DED22 /* SubRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BFACEC0621756E38000DED22 /* SubRequest.m */; };
-		BFACEC0921756E38000DED22 /* SubRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BFACEC0721756E38000DED22 /* SubRequest.h */; };
+		BFACEC0821756E38000DED22 /* ExamSubRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BFACEC0621756E38000DED22 /* ExamSubRequest.m */; };
+		BFACEC0921756E38000DED22 /* ExamSubRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BFACEC0721756E38000DED22 /* ExamSubRequest.h */; };
+		BFECC70F217E2CAB00559B79 /* LYCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BFECC70D217E2CAB00559B79 /* LYCache.h */; };
+		BFECC710217E2CAB00559B79 /* LYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BFECC70E217E2CAB00559B79 /* LYCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		3ACE7F494CB8B5BB689B69B4 /* Pods-LYNetworkRequestKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYNetworkRequestKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit.release.xcconfig"; sourceTree = "<group>"; };
+		BF8D86EE218214DA00BACBEB /* BaseApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseApi.h; sourceTree = "<group>"; };
+		BF8D86EF218214DA00BACBEB /* BaseApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseApi.m; sourceTree = "<group>"; };
 		BF8DD901216F96C3004D4692 /* LYNetworkRequestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LYNetworkRequestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8DD904216F96C3004D4692 /* LYNetworkRequestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYNetworkRequestKit.h; sourceTree = "<group>"; };
 		BF8DD905216F96C3004D4692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,8 +47,10 @@
 		BF8DD91E216F96E0004D4692 /* NetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
 		BF8DD926216FABED004D4692 /* LYProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYProgressHUD.h; sourceTree = "<group>"; };
 		BF8DD927216FABED004D4692 /* LYProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYProgressHUD.m; sourceTree = "<group>"; };
-		BFACEC0621756E38000DED22 /* SubRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubRequest.m; sourceTree = "<group>"; };
-		BFACEC0721756E38000DED22 /* SubRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRequest.h; sourceTree = "<group>"; };
+		BFACEC0621756E38000DED22 /* ExamSubRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamSubRequest.m; sourceTree = "<group>"; };
+		BFACEC0721756E38000DED22 /* ExamSubRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamSubRequest.h; sourceTree = "<group>"; };
+		BFECC70D217E2CAB00559B79 /* LYCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYCache.h; sourceTree = "<group>"; };
+		BFECC70E217E2CAB00559B79 /* LYCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYCache.m; sourceTree = "<group>"; };
 		C86EB788928A4F60F19C3143 /* libPods-LYNetworkRequestKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYNetworkRequestKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D552BD9522D307AC2804B993 /* Pods-LYNetworkRequestKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYNetworkRequestKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,11 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF8D86ED218214B800BACBEB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D86EE218214DA00BACBEB /* BaseApi.h */,
+				BF8D86EF218214DA00BACBEB /* BaseApi.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		BF8DD8F7216F96C3004D4692 = {
 			isa = PBXGroup;
 			children = (
-				BFACEC0721756E38000DED22 /* SubRequest.h */,
-				BFACEC0621756E38000DED22 /* SubRequest.m */,
+				BFACEC0721756E38000DED22 /* ExamSubRequest.h */,
+				BFACEC0621756E38000DED22 /* ExamSubRequest.m */,
 				BF8DD903216F96C3004D4692 /* LYNetworkRequestKit */,
 				BF8DD90E216F96C3004D4692 /* LYNetworkRequestKitTests */,
 				BF8DD902216F96C3004D4692 /* Products */,
@@ -92,8 +109,8 @@
 		BF8DD903216F96C3004D4692 /* LYNetworkRequestKit */ = {
 			isa = PBXGroup;
 			children = (
-				BF8DD91C216F96E0004D4692 /* LYNetworkRequestKit */,
 				BF8DD904216F96C3004D4692 /* LYNetworkRequestKit.h */,
+				BF8DD91C216F96E0004D4692 /* LYNetworkRequestKit */,
 				BF8DD905216F96C3004D4692 /* Info.plist */,
 			);
 			path = LYNetworkRequestKit;
@@ -111,9 +128,10 @@
 		BF8DD91C216F96E0004D4692 /* LYNetworkRequestKit */ = {
 			isa = PBXGroup;
 			children = (
+				BF8D86ED218214B800BACBEB /* Base */,
+				BFB8D565217F859900034723 /* Core */,
+				BFECC70C217E18B000559B79 /* Cache */,
 				BF8DD925216FABAD004D4692 /* HUD */,
-				BF8DD91E216F96E0004D4692 /* NetworkRequest.h */,
-				BF8DD91D216F96E0004D4692 /* NetworkRequest.m */,
 			);
 			path = LYNetworkRequestKit;
 			sourceTree = "<group>";
@@ -125,6 +143,24 @@
 				BF8DD927216FABED004D4692 /* LYProgressHUD.m */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		BFB8D565217F859900034723 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BF8DD91E216F96E0004D4692 /* NetworkRequest.h */,
+				BF8DD91D216F96E0004D4692 /* NetworkRequest.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BFECC70C217E18B000559B79 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				BFECC70D217E2CAB00559B79 /* LYCache.h */,
+				BFECC70E217E2CAB00559B79 /* LYCache.m */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		DAC272E605520C1BBBD8A911 /* Frameworks */ = {
@@ -151,9 +187,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFECC70F217E2CAB00559B79 /* LYCache.h in Headers */,
 				BF8DD928216FABED004D4692 /* LYProgressHUD.h in Headers */,
-				BFACEC0921756E38000DED22 /* SubRequest.h in Headers */,
+				BFACEC0921756E38000DED22 /* ExamSubRequest.h in Headers */,
 				BF8DD912216F96C3004D4692 /* LYNetworkRequestKit.h in Headers */,
+				BF8D86F0218214DA00BACBEB /* BaseApi.h in Headers */,
 				BF8DD922216F96E0004D4692 /* NetworkRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +333,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFACEC0821756E38000DED22 /* SubRequest.m in Sources */,
+				BF8D86F1218214DA00BACBEB /* BaseApi.m in Sources */,
+				BFACEC0821756E38000DED22 /* ExamSubRequest.m in Sources */,
+				BFECC710217E2CAB00559B79 /* LYCache.m in Sources */,
 				BF8DD921216F96E0004D4692 /* NetworkRequest.m in Sources */,
 				BF8DD929216FABED004D4692 /* LYProgressHUD.m in Sources */,
 			);
@@ -490,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LYNetworkRequestKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -506,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LYNetworkRequestKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

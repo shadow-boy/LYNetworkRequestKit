@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LYNetworkRequestKit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A short description of LYNetworkRequestKit."
 
   # This description is used to generate tags and improve search results.
@@ -136,6 +136,7 @@ Pod::Spec.new do |s|
 s.dependency  'AFNetworking', '~> 3.2.0'
 s.dependency  'SVProgressHUD', '~> 2.2.1'
 s.dependency  'YYModel', '~> 1.0.4'
+s.dependency  'YYCache'
 
 
 

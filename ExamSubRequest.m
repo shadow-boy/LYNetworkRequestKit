@@ -6,26 +6,34 @@
 //  Copyright © 2018 CPX. All rights reserved.
 //
 
-#import "SubRequest.h"
+#import "ExamSubRequest.h"
 
-@implementation SubRequest
-+ (NSString *)baseURL{
+@implementation ExamSubRequest
+- (NSString *)baseURL{
     return @"sandbox.catchadoll.com:8888/v1/";
 }
-+(NSString *)baseURL_Prefix{
+-(NSString *)baseURL_Prefix{
     return @"http://";
 }
-+(NSString *)kMsgKey{
+-(NSString *)kMsgKey{
     return @"errormessage";
 }
-+ (NSString *)kDataKey{
+- (NSString *)kDataKey{
     return @"content";
 }
-+ (NSString *)kStatusCodeKey{
+- (NSString *)kStatusCodeKey{
     return @"errorcode";
 }
-+(NSDictionary*)httpRequestHeader{
+-(NSDictionary*)httpRequestHeader{
     return @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",@"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDU2MjI1OTAsImlhdCI6MTUzOTU3NDU5MCwiaWQiOjEyODY1fQ.nOzF41IOJGEF2ZCnpM_kdlqNJJ_iODyktDJohN55LJI"]};
+}
+
+-(BOOL)loadCacheFirst
+{
+    return YES;
+}
+- (BOOL)refreshCache{
+    return YES;
 }
 
 

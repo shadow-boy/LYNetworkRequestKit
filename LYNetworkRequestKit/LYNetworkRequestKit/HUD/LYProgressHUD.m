@@ -105,3 +105,107 @@ static NSString * const kHiddenAllHudNotificationName = @"kHiddenAllHudNotificat
 
 
 @end
+
+
+
+
+
+
+
+double const kHUDMinDismissTimeInterval = 2.0;
+
+static double const kHUDDelayShowTimeInterval = 2.0;
+
+@implementation SVProgressHUD (LYSVHUDHelper)
+
++ (void)ly_dismissWithDelay:(NSTimeInterval)delay completion:(LYSVProgressHUDShowCompletion)completion {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (completion) {
+            completion();
+        }
+    });
+}
+
++ (void)ly_showInfoWithStatus:(NSString *)status
+                   completion:(LYSVProgressHUDShowCompletion)completion {
+    [self showInfoWithStatus:status];
+    
+    [self ly_dismissWithDelay:kHUDMinDismissTimeInterval completion:completion];
+}
+
++ (void)ly_showSuccessWithStatus:(NSString *)status
+                      completion:(LYSVProgressHUDShowCompletion)completion {
+    [self showSuccessWithStatus:status];
+    
+    [self ly_dismissWithDelay:kHUDMinDismissTimeInterval completion:completion];
+}
+
++(void)ly_showErrorWithStatus:(NSString *)status
+                   completion:(LYSVProgressHUDShowCompletion)completion {
+    [self showErrorWithStatus:status];
+    
+    [self ly_dismissWithDelay:kHUDMinDismissTimeInterval completion:completion];
+}
+
++ (void)ly_showTextWithStatus:(NSString *)status
+                   completion:(LYSVProgressHUDShowCompletion)completion {
+    [self showImage:nil status:status];
+    
+    [self ly_dismissWithDelay:kHUDMinDismissTimeInterval completion:completion];
+}
+
+#pragma mark - 延迟显示
++ (void)ly_delayShowSuccessWithStatus:(NSString *)status
+                           completion:(LYSVProgressHUDShowCompletion)completion {
+    [self ly_delayShowSuccessWithStatus:status delay:kHUDDelayShowTimeInterval completion:completion];
+}
+
++ (void)ly_delayShowSuccessWithStatus:(NSString *)status
+                                delay:(NSTimeInterval)delay
+                           completion:(LYSVProgressHUDShowCompletion)completion {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self ly_showSuccessWithStatus:status completion:completion];
+    });
+}
+
++ (void)ly_delayShowErrorWithStatus:(NSString *)status
+                         completion:(LYSVProgressHUDShowCompletion)completion {
+    [self ly_delayShowErrorWithStatus:status delay:kHUDDelayShowTimeInterval completion:completion];
+}
+
++ (void)ly_delayShowErrorWithStatus:(NSString *)status
+                              delay:(NSTimeInterval)delay
+                         completion:(LYSVProgressHUDShowCompletion)completion {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self ly_showErrorWithStatus:status completion:completion];
+    });
+}
+
++ (void)ly_delayShowInfoWithStatus:(NSString *)status
+                        completion:(LYSVProgressHUDShowCompletion)completion {
+    [self ly_delayShowInfoWithStatus:status delay:kHUDDelayShowTimeInterval completion:completion];
+}
+
++ (void)ly_delayShowInfoWithStatus:(NSString *)status
+                             delay:(NSTimeInterval)delay
+                        completion:(LYSVProgressHUDShowCompletion)completion {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self ly_showErrorWithStatus:status completion:completion];
+    });
+}
+
++ (void)ly_delayShowTextWithStatus:(NSString *)status
+                        completion:(LYSVProgressHUDShowCompletion)completion {
+    [self ly_delayShowTextWithStatus:status delay:kHUDDelayShowTimeInterval completion:completion];
+}
+
++ (void)ly_delayShowTextWithStatus:(NSString *)status
+                             delay:(NSTimeInterval)delay
+                        completion:(LYSVProgressHUDShowCompletion)completion {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self ly_showTextWithStatus:status completion:completion];
+    });
+}
+
+@end

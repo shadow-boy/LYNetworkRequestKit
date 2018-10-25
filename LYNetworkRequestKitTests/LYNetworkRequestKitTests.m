@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "SubRequest.h"
+#import "ExamSubRequest.h"
 
 
 @interface LYNetworkRequestKitTests : XCTestCase
@@ -29,11 +29,23 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
-    [SubRequest requestGetJsonOperationWithParam:nil action:@"getDataList" showLoadHud:YES cancelEnable:YES normalResponse:^(NSInteger status, id  _Nonnull data) {
+    [[ExamSubRequest shareInstance] requestGetJsonOperationWithParam:nil action:@"getDataList" showLoadHud:YES cancelEnable:YES normalResponse:^(NSInteger status, id  _Nonnull data) {
         
     } exceptionResponse:^(NSError * _Nonnull error) {
         
     }];
+    
+    ExamSubRequest * request1 =  [ExamSubRequest shareInstance];
+    request1.loadCacheFirst = YES;
+    request1.refreshCache = YES;
+    [request1 requestGetJsonOperationWithParam:nil action:@"getDataList"
+                                   showLoadHud:YES cancelEnable:YES
+                                normalResponse:^(NSInteger status, id  _Nonnull data) {
+        
+    } exceptionResponse:^(NSError * _Nonnull error) {
+        
+    }];
+    
     
 }
 

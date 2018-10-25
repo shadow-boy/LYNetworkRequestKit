@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVProgressHUD.h"
+
+#define kKeyWindow [UIApplication sharedApplication].keyWindow
+
 
 
 
@@ -62,3 +66,68 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+
+
+extern double const kHUDMinDismissTimeInterval;
+
+typedef void(^LYSVProgressHUDShowCompletion)(void);
+
+@interface SVProgressHUD (LYSVHUDHelper)
+
++ (void)ly_showInfoWithStatus:(NSString *)status
+                   completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_showSuccessWithStatus:(NSString *)status
+                      completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_showErrorWithStatus:(NSString *)status
+                    completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_showTextWithStatus:(NSString *)status
+                   completion:(LYSVProgressHUDShowCompletion)completion;
+
+
+
+/**
+ 延迟显示成功， 内部默认2.0s
+ 
+ @param status status description
+ @param completion completion description
+ */
++ (void)ly_delayShowSuccessWithStatus:(NSString *)status
+                           completion:(LYSVProgressHUDShowCompletion)completion;
+/**
+ 延迟显示成功
+ 
+ @param status status description
+ @param completion completion description
+ */
++ (void)ly_delayShowSuccessWithStatus:(NSString *)status
+                                delay:(NSTimeInterval)delay
+                           completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_delayShowErrorWithStatus:(NSString *)status
+                         completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_delayShowErrorWithStatus:(NSString *)status
+                              delay:(NSTimeInterval)delay
+                         completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_delayShowInfoWithStatus:(NSString *)status
+                        completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_delayShowInfoWithStatus:(NSString *)status
+                             delay:(NSTimeInterval)delay
+                        completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_delayShowTextWithStatus:(NSString *)status
+                        completion:(LYSVProgressHUDShowCompletion)completion;
+
++ (void)ly_delayShowTextWithStatus:(NSString *)status
+                             delay:(NSTimeInterval)delay
+                        completion:(LYSVProgressHUDShowCompletion)completion;
+
+
+@end
+

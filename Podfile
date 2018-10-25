@@ -10,6 +10,6 @@ target 'LYNetworkRequestKit' do
     pod 'AFNetworking', '~> 3.2.0'
     pod 'SVProgressHUD', '~> 2.2.1'
     pod 'YYModel', '~> 1.0.4'
-
+    pod 'YYCache'
 
 end
