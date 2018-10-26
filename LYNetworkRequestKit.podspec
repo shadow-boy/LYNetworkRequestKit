@@ -84,8 +84,6 @@ Pod::Spec.new do |s|
   s.source_files  = "LYNetworkRequestKit/LYNetworkRequestKit/*.{h,m}", "LYNetworkRequestKit/LYNetworkRequestKit/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/**/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/**/**/**/*.{h,m}"
   # s.exclude_files = "LYNetworkRequestKit/Exclude"
 
-  s.public_header_files = "LYNetworkRequestKit/LYNetworkRequestKit/*.h"
-
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -108,6 +106,8 @@ Pod::Spec.new do |s|
   # s.compiler_flags = '-fno-modules'
   s.frameworks  = "UIKit","Foundation"
 
+  s.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+  s.compiler_flags = '-fno-modules'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
