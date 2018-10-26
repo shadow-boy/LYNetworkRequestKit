@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LYNetworkRequestKit"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "A short description of LYNetworkRequestKit."
 
   # This description is used to generate tags and improve search results.
@@ -37,7 +37,6 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  # s.license      = "MIT (example)"
   s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -52,9 +51,6 @@ Pod::Spec.new do |s|
   #
 
   s.author           = { 'shadow-boy' => 'wly1250623585gmail.com' }
-  # Or just: s.author    = ""
-  # s.authors            = { "" => "" }
-  # s.social_media_url   = "http://twitter.com/"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -65,11 +61,7 @@ Pod::Spec.new do |s|
   # s.platform     = :ios
   s.platform     = :ios, "9.0"
 
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
+
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,10 +81,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "LYNetworkRequestKit/*.{h,m}", "LYNetworkRequestKit/**/*.{h,m}","LYNetworkRequestKit/**/**/*.{h,m}","LYNetworkRequestKit/**/**/**/*.{h,m}","LYNetworkRequestKit/**/**/**/**/*.{h,m}"
-  s.exclude_files = "LYNetworkRequestKit/Exclude"
+  s.source_files  = "LYNetworkRequestKit/LYNetworkRequestKit/*.{h,m}", "LYNetworkRequestKit/LYNetworkRequestKit/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/**/**/*.{h,m}","LYNetworkRequestKit/LYNetworkRequestKit/**/**/**/**/**/*.{h,m}"
+  # s.exclude_files = "LYNetworkRequestKit/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "LYNetworkRequestKit/LYNetworkRequestKit/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -103,9 +95,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-  # s.resources = "LYNetworkRequestKit/**/**/*.xib","LYNetworkRequestKit/**/**/**/*.xib","LYNetworkRequestKit/**/**/**/**/*.xib"
+
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -115,12 +105,9 @@ Pod::Spec.new do |s|
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-  s.compiler_flags = '-fno-modules'
-  s.frameworks  = "UIKit"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  # s.compiler_flags = '-fno-modules'
+  s.frameworks  = "UIKit","Foundation"
 
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -131,7 +118,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
 s.dependency  'AFNetworking', '~> 3.2.0'
 s.dependency  'SVProgressHUD', '~> 2.2.1'

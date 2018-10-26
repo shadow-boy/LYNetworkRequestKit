@@ -7,20 +7,7 @@
 		<key>LYNetworkRequestKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>BF8DD900216F96C3004D4692</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BF8DD909216F96C3004D4692</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>5</integer>
 		</dict>
 	</dict>
 </dict>
