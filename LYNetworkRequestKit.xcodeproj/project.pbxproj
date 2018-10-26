@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		993D3468061C446F969BC191 /* libPods-LYNetworkRequestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C86EB788928A4F60F19C3143 /* libPods-LYNetworkRequestKit.a */; };
+		BF4A6D1521831A6000863D9D /* NSURLSessionTask+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4A6D1321831A6000863D9D /* NSURLSessionTask+Extension.h */; };
+		BF4A6D1621831A6000863D9D /* NSURLSessionTask+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6D1421831A6000863D9D /* NSURLSessionTask+Extension.m */; };
 		BF8D86F0218214DA00BACBEB /* BaseApi.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8D86EE218214DA00BACBEB /* BaseApi.h */; };
 		BF8D86F1218214DA00BACBEB /* BaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D86EF218214DA00BACBEB /* BaseApi.m */; };
 		BF8DD90B216F96C3004D4692 /* LYNetworkRequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8DD901216F96C3004D4692 /* LYNetworkRequestKit.framework */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		3ACE7F494CB8B5BB689B69B4 /* Pods-LYNetworkRequestKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYNetworkRequestKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit.release.xcconfig"; sourceTree = "<group>"; };
+		BF4A6D1321831A6000863D9D /* NSURLSessionTask+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+Extension.h"; sourceTree = "<group>"; };
+		BF4A6D1421831A6000863D9D /* NSURLSessionTask+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+Extension.m"; sourceTree = "<group>"; };
 		BF8D86EE218214DA00BACBEB /* BaseApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseApi.h; sourceTree = "<group>"; };
 		BF8D86EF218214DA00BACBEB /* BaseApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseApi.m; sourceTree = "<group>"; };
 		BF8DD901216F96C3004D4692 /* LYNetworkRequestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LYNetworkRequestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF4A6D122183187D00863D9D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BF4A6D1321831A6000863D9D /* NSURLSessionTask+Extension.h */,
+				BF4A6D1421831A6000863D9D /* NSURLSessionTask+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		BF8D86ED218214B800BACBEB /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 		BF8DD91C216F96E0004D4692 /* LYNetworkRequestKit */ = {
 			isa = PBXGroup;
 			children = (
+				BF4A6D122183187D00863D9D /* Category */,
 				BF8D86ED218214B800BACBEB /* Base */,
 				BFB8D565217F859900034723 /* Core */,
 				BFECC70C217E18B000559B79 /* Cache */,
@@ -188,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFECC70F217E2CAB00559B79 /* LYCache.h in Headers */,
+				BF4A6D1521831A6000863D9D /* NSURLSessionTask+Extension.h in Headers */,
 				BF8DD928216FABED004D4692 /* LYProgressHUD.h in Headers */,
 				BFACEC0921756E38000DED22 /* ExamSubRequest.h in Headers */,
 				BF8DD912216F96C3004D4692 /* LYNetworkRequestKit.h in Headers */,
@@ -335,6 +350,7 @@
 			files = (
 				BF8D86F1218214DA00BACBEB /* BaseApi.m in Sources */,
 				BFACEC0821756E38000DED22 /* ExamSubRequest.m in Sources */,
+				BF4A6D1621831A6000863D9D /* NSURLSessionTask+Extension.m in Sources */,
 				BFECC710217E2CAB00559B79 /* LYCache.m in Sources */,
 				BF8DD921216F96E0004D4692 /* NetworkRequest.m in Sources */,
 				BF8DD929216FABED004D4692 /* LYProgressHUD.m in Sources */,

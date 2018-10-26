@@ -12,6 +12,7 @@
 #import "LYProgressHUD.h"
 #import "YYModel.h"
 #import "LYCache.h"
+#import "NSURLSessionTask+Extension.h"
 
 @implementation NetworkRequest
 static AFNetworkReachabilityManager * _reachAbility;
@@ -195,7 +196,7 @@ static AFNetworkReachabilityManager * _reachAbility;
             exceptionResponse(error);
             return ;
         }
-        if (refreshCache){//保存缓存
+        if (task.refreshCache){//保存缓存
             LYCacheDataModel * cache = [[LYCacheDataModel alloc]init];
             cache.httpData = dic;
             cache.time = [LYCacheDataModel currentTimeInterval];
@@ -213,6 +214,7 @@ static AFNetworkReachabilityManager * _reachAbility;
         
         
     } ];
+    task.refreshCache = refreshCache;
     if (hud){
         hud.cancelHudBlock = ^(LYProgressHUD * _Nonnull hud) {
             [task cancel];
