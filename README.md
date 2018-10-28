@@ -1,5 +1,5 @@
 # LYNetworkRequestKit
-王连友独立设计开发的网络请求框架、支持对网络请求hud 的显示、还支持点击hud背景取消某个网络请求的操作
+# * 王连友独立设计开发的网络请求框架、支持对网络请求hud 的显示、支持点击hud背景取消某个网络请求的操作
 
 ### 1、基础使用方法：
 ```
@@ -89,5 +89,12 @@ ExamSubRequest * request1 =  [ExamSubRequest shareInstance];
                        normalResponse:(void(^)(NSInteger status, id data, NSMutableArray *array))normalResponse
                     exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 ```
+
+
+
+# *TODOLIST*
+1. 加入reactcocoa用法
+2. 编写swift版本
+3. 继续优化代码使用方法等
 
 
