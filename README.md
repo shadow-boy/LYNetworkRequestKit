@@ -93,8 +93,12 @@ ExamSubRequest * request1 =  [ExamSubRequest shareInstance];
 
 
 # *TODOLIST*
-1. 加入reactcocoa用法
-2. 编写swift版本
-3. 继续优化代码使用方法等
+1. 编写swift版本
+2. 继续优化代码使用方法等
+
+
+# CHANLOG 
+- 设置有效超时时间。。修复之前超时时间无效的问题
+
 
 
