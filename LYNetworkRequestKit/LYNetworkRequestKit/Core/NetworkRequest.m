@@ -176,7 +176,7 @@ static AFNetworkReachabilityManager * _reachAbility;
         [keyUrl appendString:[self constructParametersToString:param]];
     }
     AFHTTPSessionManager *manager = [self requestStaticOperationManager];
-    
+    manager.requestSerializer.timeoutInterval = self.timeOutInterval;
     LYProgressHUD * hud = nil;
     if (showHud){
         hud = [LYProgressHUD showWithCancelEnable:cancelEnable];
@@ -213,6 +213,7 @@ static AFNetworkReachabilityManager * _reachAbility;
         
         
     } ];
+   
     task.refreshCache = refreshCache;
     if (hud){
         hud.cancelHudBlock = ^(LYProgressHUD * _Nonnull hud) {
@@ -236,7 +237,8 @@ static AFNetworkReachabilityManager * _reachAbility;
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     AFHTTPSessionManager *manager = [self requestStaticOperationManager];
-    
+    manager.requestSerializer.timeoutInterval = self.timeOutInterval;
+
     LYProgressHUD * hud = nil;
     if (showHud){
         hud = [LYProgressHUD showWithCancelEnable:cancelEnable];
@@ -284,7 +286,8 @@ static AFNetworkReachabilityManager * _reachAbility;
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     AFHTTPSessionManager *manager = [self requestStaticOperationManager];
-    
+    manager.requestSerializer.timeoutInterval = self.timeOutInterval;
+
     LYProgressHUD * hud = nil;
     if (showHud){
         hud = [LYProgressHUD showWithCancelEnable:cancelEnable];
@@ -332,7 +335,8 @@ static AFNetworkReachabilityManager * _reachAbility;
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     AFHTTPSessionManager *manager = [self requestStaticOperationManager];
-    
+    manager.requestSerializer.timeoutInterval = self.timeOutInterval;
+
     LYProgressHUD * hud = nil;
     if (showHud){
         hud = [LYProgressHUD showWithCancelEnable:cancelEnable];
@@ -378,7 +382,8 @@ static AFNetworkReachabilityManager * _reachAbility;
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     AFHTTPSessionManager *manager = [self requestStaticOperationManager];
-    
+    manager.requestSerializer.timeoutInterval = self.timeOutInterval;
+
     LYProgressHUD * hud = nil;
     if (showHud){
         hud = [LYProgressHUD showWithCancelEnable:cancelEnable];
@@ -608,6 +613,7 @@ static AFNetworkReachabilityManager * _reachAbility;
                                                              @"text/html",
                                                              @"text/plain",
                                                              nil];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
         [manager.requestSerializer setTimeoutInterval:self.timeOutInterval];
     });
     
