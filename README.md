@@ -90,6 +90,9 @@ ExamSubRequest * request1 =  [ExamSubRequest shareInstance];
                     exceptionResponse:(void(^)(NSError *error))exceptionResponse;
 ```
 
+# 使用方法
+' pod 'LYNetworkRequestKit' '
+' pod install '
 
 
 # *TODOLIST*
