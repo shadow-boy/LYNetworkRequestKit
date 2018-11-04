@@ -91,8 +91,8 @@ ExamSubRequest * request1 =  [ExamSubRequest shareInstance];
 ```
 
 # 使用方法
-' pod 'LYNetworkRequestKit' '
-' pod install '
+pod 'LYNetworkRequestKit'
+pod install
 
 
 # *TODOLIST*
