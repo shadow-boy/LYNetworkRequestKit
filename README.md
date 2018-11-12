@@ -102,6 +102,7 @@ ExamSubRequest * request1 =  [ExamSubRequest shareInstance];
 
 # CHANLOG 
 - 设置有效超时时间。。修复之前超时时间无效的问题
+- 设置hud 添加全局配置项，设置uIActivityIndicator 颜色为lightGray
 
 
 

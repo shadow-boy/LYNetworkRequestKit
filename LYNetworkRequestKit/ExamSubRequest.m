@@ -10,7 +10,7 @@
 
 @implementation ExamSubRequest
 - (NSString *)baseURL{
-    return @"sandbox.catchadoll.com:8888/v1/";
+    return @"www.baidu.com";
 }
 -(NSString *)baseURL_Prefix{
     return @"http://";

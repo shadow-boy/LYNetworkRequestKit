@@ -7,7 +7,6 @@
 //
 
 #import "NetworkRequest.h"
-#import "AFNetworking.h"
 #import "LYProgressHUD.h"
 #import "YYModel.h"
 #import "LYCache.h"

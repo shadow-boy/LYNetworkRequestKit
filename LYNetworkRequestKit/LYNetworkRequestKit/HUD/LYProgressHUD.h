@@ -68,6 +68,18 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
+/**
+ hud 全局配置项、暂时参数较少
+ */
+@interface LYHUDConfig : NSObject
+
++ (LYHUDConfig*) globalConfig;
+
+@property (nonatomic,strong)UIColor * hudBgColor;/**<hud全局背景色*/
+
+@end
+
+
 
 extern double const kHUDMinDismissTimeInterval;
 

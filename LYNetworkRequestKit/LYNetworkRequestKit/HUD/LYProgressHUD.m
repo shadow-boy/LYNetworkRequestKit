@@ -21,8 +21,10 @@ static NSString * const kHiddenAllHudNotificationName = @"kHiddenAllHudNotificat
     LYProgressHUD* hud =  [[LYProgressHUD alloc] initWithFrame:[UIScreen mainScreen].bounds];
     hud.cancel_enable = NO;
     hud.userInteractionEnabled = hud.cancel_enable;
-
-    hud.backgroundColor = [UIColor blackColor];
+    
+    LYHUDConfig * config = [LYHUDConfig globalConfig];
+    hud.backgroundColor = config.hudBgColor;
+    
     hud.alpha = 0;
     [hud showAnimation];
 
@@ -39,7 +41,7 @@ static NSString * const kHiddenAllHudNotificationName = @"kHiddenAllHudNotificat
 }
 
 -(void)showAnimation{
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         self.alpha = 0.3;
 
     } completion:^(BOOL finished) {
@@ -54,7 +56,7 @@ static NSString * const kHiddenAllHudNotificationName = @"kHiddenAllHudNotificat
     
 }
 -(void)hideAnimation{
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         self.alpha = 0;
         
     } completion:^(BOOL finished) {
@@ -81,6 +83,7 @@ static NSString * const kHiddenAllHudNotificationName = @"kHiddenAllHudNotificat
 -(void)setupView{
     self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.indicator.center = self.center;
+    self.indicator.color = [UIColor lightGrayColor];
     [self addSubview:self.indicator];
     self.indicator.hidesWhenStopped = YES;
     self.userInteractionEnabled =  YES;
@@ -106,6 +109,37 @@ static NSString * const kHiddenAllHudNotificationName = @"kHiddenAllHudNotificat
 
 @end
 
+
+@implementation LYHUDConfig
+
+
++ (LYHUDConfig *)globalConfig{
+    static LYHUDConfig *config;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        
+        config = [LYHUDConfig new];
+        
+    });
+    
+    return config;
+}
+- (instancetype)init
+{
+    self = [super init];
+    
+    if ( self )
+    {
+        self.hudBgColor = [UIColor clearColor];
+    }
+    
+    return self;
+}
+
+
+
+@end
 
 
 

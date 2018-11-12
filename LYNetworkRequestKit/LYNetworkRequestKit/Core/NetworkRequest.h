@@ -19,6 +19,8 @@
 
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
+
 static NSInteger kCacheNetworkTime = 10 * 60;
 static NSInteger kCacheNoNetworkTime = 60 * 60 * 24 * 10;
 NS_ASSUME_NONNULL_BEGIN
@@ -65,6 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(instancetype)shareInstance;
 
+/**
+  获取唯一的一个afmanager
+ @return <#return value description#>
+ */
+- (AFHTTPSessionManager *)requestStaticOperationManager;
 
 
 /**
