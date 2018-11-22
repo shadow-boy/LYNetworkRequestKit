@@ -60,6 +60,9 @@ NS_ASSUME_NONNULL_BEGIN
 /*刷新缓存信息、默认NO  可以使用set方法复赋值 方法和getter方法返回值*/
 @property (nonatomic,assign)BOOL refreshCache;
 
+/*是否显示错误状态信息、根据kSuccessStatusCode 判断*/
+@property (nonatomic,assign)BOOL showErrorMsg;
+
 /**
   share 类单例方法
 

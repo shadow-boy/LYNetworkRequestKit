@@ -68,7 +68,9 @@ static AFNetworkReachabilityManager * _reachAbility;
 - (NSInteger)cacheNoNetworkTime{
     return 60 * 60 * 24 * 10;
 }
-
+-(BOOL)showErrorMsg{
+    return YES;
+}
 
 #pragma mark ------ request config begin
 
@@ -567,11 +569,10 @@ static AFNetworkReachabilityManager * _reachAbility;
     if([dic isKindOfClass:[NSDictionary class]]){
         if ([dic[kErrorCodeKey] integerValue] != kSuccessCode){
             if (dic[kErrowMsgKey]){
-#ifdef DEBUG
-                [SVProgressHUD showErrorWithStatus:dic[kErrowMsgKey]];
-#else
+                if (self.showErrorMsg){//判断是否需要显示错误信息
+                    [SVProgressHUD showErrorWithStatus:dic[kErrowMsgKey]];
+                }
                 
-#endif
             }
         }
         if ([self isnull:dic[kDataKey]]){
