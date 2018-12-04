@@ -570,7 +570,10 @@ static AFNetworkReachabilityManager * _reachAbility;
         if ([dic[kErrorCodeKey] integerValue] != kSuccessCode){
             if (dic[kErrowMsgKey]){
                 if (self.showErrorMsg){//判断是否需要显示错误信息
-                    [SVProgressHUD showErrorWithStatus:dic[kErrowMsgKey]];
+                    if ([dic[kErrowMsgKey] isKindOfClass:[NSString class]]){
+                        [SVProgressHUD showErrorWithStatus:dic[kErrowMsgKey]];
+
+                    }
                 }
                 
             }
