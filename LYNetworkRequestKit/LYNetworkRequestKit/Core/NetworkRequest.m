@@ -567,23 +567,26 @@ static AFNetworkReachabilityManager * _reachAbility;
     NSString  * kDataKey       = self.kDataKey;
     
     if([dic isKindOfClass:[NSDictionary class]]){
-        if ([dic[kErrorCodeKey] integerValue] != kSuccessCode){
-            if (dic[kErrowMsgKey]){
-                if (self.showErrorMsg){//判断是否需要显示错误信息
-                    if ([dic[kErrowMsgKey] isKindOfClass:[NSString class]]){
-                        [SVProgressHUD showErrorWithStatus:dic[kErrowMsgKey]];
-
-                    }
-                }
-                
-            }
-        }
+       
         if ([self isnull:dic[kDataKey]]){
             normalResponse([dic[kErrorCodeKey] integerValue],nil);
         }
         else{
             normalResponse([dic[kErrorCodeKey] integerValue],dic[kDataKey]);
         }
+        
+        if ([dic[kErrorCodeKey] integerValue] != kSuccessCode){//修改此处的显示bug、、必须在回调之后再显示系统错误hud、不然错误一闪而过
+            if (dic[kErrowMsgKey]){
+                if (self.showErrorMsg){//判断是否需要显示错误信息
+                    if ([dic[kErrowMsgKey] isKindOfClass:[NSString class]]){
+                        [SVProgressHUD showErrorWithStatus:dic[kErrowMsgKey]];
+                        
+                    }
+                }
+                
+            }
+        }
+        
         
     }
     
