@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09F3D3AEC5773C2AEE0F3827 /* libPods-LYNetworkRequestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 096E2BA392B0B6D1A17EC879 /* libPods-LYNetworkRequestKit.a */; };
+		60576C362251E0270037D979 /* SubSubRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60576C352251E0270037D979 /* SubSubRequest.m */; };
 		BF4B5EC221835B0D008A0BD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4B5EC121835B0D008A0BD2 /* AppDelegate.m */; };
 		BF4B5EC521835B0D008A0BD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4B5EC421835B0D008A0BD2 /* ViewController.m */; };
 		BF4B5EC821835B0D008A0BD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4B5EC621835B0D008A0BD2 /* Main.storyboard */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		096E2BA392B0B6D1A17EC879 /* libPods-LYNetworkRequestKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYNetworkRequestKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60576C342251E0270037D979 /* SubSubRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubSubRequest.h; sourceTree = "<group>"; };
+		60576C352251E0270037D979 /* SubSubRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubSubRequest.m; sourceTree = "<group>"; };
 		6232B9C78AC77806D62E1B2C /* Pods-LYNetworkRequestKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYNetworkRequestKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit.release.xcconfig"; sourceTree = "<group>"; };
 		BF4B5EBD21835B0D008A0BD2 /* LYNetworkRequestKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYNetworkRequestKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4B5EC021835B0D008A0BD2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				BF4B5EF421835B90008A0BD2 /* LYNetworkRequestKit */,
 				BF4B5EF221835B90008A0BD2 /* ExamSubRequest.h */,
 				BF4B5EF321835B90008A0BD2 /* ExamSubRequest.m */,
+				60576C342251E0270037D979 /* SubSubRequest.h */,
+				60576C352251E0270037D979 /* SubSubRequest.m */,
 				BF4B5EC021835B0D008A0BD2 /* AppDelegate.h */,
 				BF4B5EC121835B0D008A0BD2 /* AppDelegate.m */,
 				BF4B5EC321835B0D008A0BD2 /* ViewController.h */,
@@ -370,7 +375,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -379,7 +384,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LYNetworkRequestKit/Pods-LYNetworkRequestKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FACD4BC52D23065FA31B64CC /* [CP] Check Pods Manifest.lock */ = {
@@ -416,6 +421,7 @@
 				BF4B5F0721835B90008A0BD2 /* LYCache.m in Sources */,
 				BF4B5ED021835B0E008A0BD2 /* main.m in Sources */,
 				BF4B5EC221835B0D008A0BD2 /* AppDelegate.m in Sources */,
+				60576C362251E0270037D979 /* SubSubRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E4EYBAD9UP;
 				INFOPLIST_FILE = LYNetworkRequestKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -605,6 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E4EYBAD9UP;
 				INFOPLIST_FILE = LYNetworkRequestKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

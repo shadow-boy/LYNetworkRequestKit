@@ -23,6 +23,8 @@
 
 static NSInteger kCacheNetworkTime = 10 * 60;
 static NSInteger kCacheNoNetworkTime = 60 * 60 * 24 * 10;
+
+static NSString * const k_http_errorCode_observe_noti_name = @"k_http_errorCode_observe_noti_name";
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -46,6 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* 设置请求头 return e.g:@[@"Authorization":@"token_string"] */
 @property (nonatomic,strong)NSDictionary * httpRequestHeader;
+
+/** 添加http 异常状态码的网络监听 eg.@[@(401),@(403)] 添加之后从 k_http_errorCode_observe_noti_name 通知从监听回调*/
+@property (nonatomic,strong)NSArray <NSNumber *> * monitorHttpCodesWhenErrorHappen;
+
 
 #pragma mark ---- 缓存相关
 /* 有网络情况下缓存时间 默认10分钟 */

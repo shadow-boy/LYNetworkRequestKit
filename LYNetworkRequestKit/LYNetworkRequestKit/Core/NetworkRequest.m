@@ -71,6 +71,9 @@ static AFNetworkReachabilityManager * _reachAbility;
 -(BOOL)showErrorMsg{
     return YES;
 }
+- (NSArray<NSNumber *> *)monitorHttpCodesWhenErrorHappen{
+    return @[];
+}
 
 #pragma mark ------ request config begin
 
@@ -212,6 +215,8 @@ static AFNetworkReachabilityManager * _reachAbility;
         
         exceptionResponse(error);
         
+        [self handleResponseErrorWithTast:task];
+        
         
     } ];
    
@@ -266,7 +271,8 @@ static AFNetworkReachabilityManager * _reachAbility;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         exceptionResponse(error);
-        
+        [self handleResponseErrorWithTast:task];
+
         
     } ];
     if (hud){
@@ -313,7 +319,8 @@ static AFNetworkReachabilityManager * _reachAbility;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         exceptionResponse(error);
-        
+        [self handleResponseErrorWithTast:task];
+
     }];
     if (hud){
         hud.cancelHudBlock = ^(LYProgressHUD * _Nonnull hud) {
@@ -362,6 +369,8 @@ static AFNetworkReachabilityManager * _reachAbility;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         exceptionResponse(error);
+        [self handleResponseErrorWithTast:task];
+
     }];
     if (hud){
         hud.cancelHudBlock = ^(LYProgressHUD * _Nonnull hud) {
@@ -684,6 +693,32 @@ static AFNetworkReachabilityManager * _reachAbility;
     }
     return nil;
 }
+
+//处理http 错误信息 回调到外层业务层
+-(void)handleResponseErrorWithTast:(NSURLSessionDataTask * )task{
+    NSURLResponse * respose  = [task response];
+    NSHTTPURLResponse * res = (NSHTTPURLResponse * )respose;
+    NSInteger httpStatusCode = [res statusCode];
+    NSLog(@"task.currentRequest.URL.absoluteString ----- %@",task.currentRequest.URL.absoluteString);
+    
+    if (!self.monitorHttpCodesWhenErrorHappen){
+        return;
+    }
+    
+    [self.monitorHttpCodesWhenErrorHappen enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        if (obj.integerValue == httpStatusCode){
+            [[NSNotificationCenter defaultCenter] postNotificationName:k_http_errorCode_observe_noti_name object:task];
+        }
+        
+        
+    }];
+    
+
+    
+}
+
+
 
 
 @end

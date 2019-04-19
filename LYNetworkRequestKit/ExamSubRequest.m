@@ -8,24 +8,31 @@
 
 #import "ExamSubRequest.h"
 
+@interface ExamSubRequest()
+
+@end
+
 @implementation ExamSubRequest
 - (NSString *)baseURL{
-    return @"www.baidu.com";
+    NSLog(@"%s",__func__);
+    
+    return @"119.28.116.175:8120/";//test
+    
 }
 -(NSString *)baseURL_Prefix{
     return @"http://";
 }
 -(NSString *)kMsgKey{
-    return @"errormessage";
+    return @"msg";
 }
 - (NSString *)kDataKey{
-    return @"content";
+    return @"data";
 }
 - (NSString *)kStatusCodeKey{
-    return @"errorcode";
+    return @"code";
 }
 -(NSDictionary*)httpRequestHeader{
-    return @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",@"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDU2MjI1OTAsImlhdCI6MTUzOTU3NDU5MCwiaWQiOjEyODY1fQ.nOzF41IOJGEF2ZCnpM_kdlqNJJ_iODyktDJohN55LJI"]};
+    return @{@"uuid":@"0100000034"};
 }
 
 -(BOOL)loadCacheFirst
@@ -35,6 +42,40 @@
 - (BOOL)refreshCache{
     return YES;
 }
+-(NSInteger)timeOutInterval{
+    return 5;
+}
+- (BOOL)showErrorMsg{
+    NSLog(@"%s",__func__);
+
+    return YES;
+}
+- (void)requestGetJsonOperationWithParam:(NSDictionary *)param
+                                  action:(NSString *)action
+                          normalResponse:(void(^)(NSInteger status, id data))normalResponse
+                       exceptionResponse:(void(^)(NSError *error))exceptionResponse{
+    
+  [  self requestGetJsonOperationWithParam:param  action:action
+                               showLoadHud:YES
+                              cancelEnable:YES
+                            normalResponse:normalResponse exceptionResponse:exceptionResponse];
+    
+    
+}
+
+
+- (void)requestPostJsonOperationWithParam:(NSDictionary *)param
+                                   action:(NSString *)action
+                           normalResponse:(void(^)(NSInteger status, id data))normalResponse
+                        exceptionResponse:(void(^)(NSError *error))exceptionResponse
+{
+    [  self requestPostJsonOperationWithParam:param  action:action
+                                 showLoadHud:YES
+                                cancelEnable:YES
+                              normalResponse:normalResponse exceptionResponse:exceptionResponse];
+    
+}
+
 
 
 @end
